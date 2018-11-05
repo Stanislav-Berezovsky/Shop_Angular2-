@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductModel } from '../product/product.component';
+import { ProductModel } from '../product/components/product.component';
 import { ProductService } from '../product/services/product.service';
 
 export type ProductList = ProductModel[];

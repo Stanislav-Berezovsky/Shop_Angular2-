@@ -1,10 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CartService } from '../../cart/services/cart.service';
 
-export enum ProductCategoryEnum{
+export enum ProductCategoryEnum {
     Chocolate = 'Chocolate',
     Fish = 'Fish',
     Tabacco = 'Tabacco'
-} 
+}
 
 export interface ProductModel {
     name: string;
@@ -17,14 +18,16 @@ export interface ProductModel {
 @Component({
     selector: 'app-product',
     templateUrl: './product.component.html',
-    styleUrls: ['./product.component.css']
+    styleUrls: ['./product.component.css'],
+    providers: [CartService]
 })
 export class ProductComponent implements OnInit {
     @Input() product: ProductModel;
 
-    public constructor() { }
+    public constructor(private cartService: CartService) { }
 
-    onMovetoBasket(selectedProduct: ProductModel): void {
+    onMovetoCart(selectedProduct: ProductModel): void {
+        this.cartService.addProduct(selectedProduct);
         alert(`product was added to basket ${JSON.stringify(selectedProduct)}`);
     }
 

@@ -3,6 +3,5 @@
     <div>{{product.description}}</div>
     <div>{{product.price}}</div>
     <div>{{product.category}}</div>
-    <div>{{product.isAvailable}}</div>
-    <button (click)="onMovetoBasket(product)">Move to the basket</button>
+    <button [disabled]="!product.isAvailable" (click)="onMovetoBasket(product)">Move to the cart</button>
 </div>

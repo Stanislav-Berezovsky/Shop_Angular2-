@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ProductCategoryEnum } from '../product.component';
+import { ProductCategoryEnum } from '../components/product.component';
 import { ProductList } from '../../product-list/product-list.component';
 
 @Injectable({
