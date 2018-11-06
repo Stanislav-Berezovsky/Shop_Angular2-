@@ -1,7 +1,7 @@
-.productListContaner{
-    width: 60%;
-    position: relative;
-    left: 10%;
+div.emptyCard{
+    width: 15%;
+    text-align: center;
+    border: 1px solid black;
 }
 
 div.header {
@@ -17,4 +17,9 @@ div.header div{
     text-align: center;
     height: 25px;
     font-weight:bold;
+}
+
+button{
+    margin-top: 10px;
+    width: 20%;
 }

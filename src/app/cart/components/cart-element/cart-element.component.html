@@ -1,0 +1,8 @@
+<div class="product">
+        <div>{{cartProduct.name}}</div>
+        <div>{{cartProduct.price}}</div>
+        <div>{{cartProduct.count}}</div>
+        <button (click)="onIncreaseProductCount(cartProduct.name)">+</button>
+        <button [disabled]="!cartProduct.count" (click)="onReduceProductCount(cartProduct.name)">-</button>
+        <button (click)="onRemove(cartProduct.name)">remove</button>
+</div>

@@ -1,11 +1,11 @@
-<div class="productListContaner">
+<div>
     <h2>List of products</h2>
     <div class="header">
         <div>Name</div>
         <div>Description</div>
         <div>Price($)</div>
         <div>Category </div>
-         </div>
+    </div>
     <div *ngFor="let productItem of productList">
         <app-product [product]="productItem"> </app-product>
     </div>

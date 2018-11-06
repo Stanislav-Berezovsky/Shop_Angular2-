@@ -1,0 +1,14 @@
+div.header {
+    border-left: 1px solid black;
+}
+
+div.header div{
+    display : inline-block;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    width: 15%;
+    text-align: center;
+    height: 25px;
+    font-weight:bold;
+}

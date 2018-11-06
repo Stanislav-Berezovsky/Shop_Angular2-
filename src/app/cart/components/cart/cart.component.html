@@ -1,0 +1,21 @@
+<div>
+    <h2>Cart</h2>
+    <div *ngIf="cartProductList && cartProductList.lenght > 0; else emptyCard">
+        <div class="header">
+            <div>Name</div>
+            <div>Price($)</div>
+            <div>Count</div>
+        </div>
+        <div *ngFor="let cartProduct of cartProductList">
+            <app-cart-element [cartProduct]="cartProduct"> </app-cart-element>
+        </div>
+
+        <button  (click)="onCleanUpCart()"> Clear cart</button> 
+    </div>
+
+    <ng-template #emptyCard>
+        <div class="emptyCard">
+            The cart is empty :(
+        </div>
+    </ng-template>
+</div>

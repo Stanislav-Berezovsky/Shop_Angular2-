@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ProductCategoryEnum } from '../components/product.component';
-import { ProductList } from '../../product-list/product-list.component';
+import { ProductCategoryEnum } from '../components/product/product.component';
+import { ProductList } from '../components/product-list/product-list.component';
 
 @Injectable({
     providedIn: 'root'
