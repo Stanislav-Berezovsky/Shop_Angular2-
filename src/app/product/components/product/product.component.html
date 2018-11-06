@@ -3,5 +3,5 @@
     <div>{{product.description}}</div>
     <div>{{product.price}}</div>
     <div>{{product.category}}</div>
-    <button [disabled]="!product.isAvailable" (click)="onMovetoCart(product)">Move to the cart</button>
+    <button [disabled]="!product.isAvailable" (click)="onBuy(product)">Move to the cart</button>
 </div>

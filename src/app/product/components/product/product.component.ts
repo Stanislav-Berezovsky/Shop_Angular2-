@@ -25,7 +25,7 @@ export class ProductComponent implements OnInit {
 
     public constructor(private cartService: CartService) { }
 
-    onMovetoCart(selectedProduct: ProductModel): void {
+    onBuy(selectedProduct: ProductModel): void {
         this.cartService.addProduct(selectedProduct);
         console.log(`product was added to cart ${JSON.stringify(selectedProduct)}`);
     }
