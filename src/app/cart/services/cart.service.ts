@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { ProductModel } from '../../product/components/product/product.component';
-import { CartProductModel, CartProductList } from '../components/cart/cart.component';
+import { ProductModel } from '../../product/models/product.model';
+import { CartProductModel } from '../models/cart-product.model';
 
 @Injectable({
     providedIn: 'root'
 })
 export class CartService {
-    private cartProductList: CartProductList = [];
+    private cartProductList: CartProductModel[] = [];
 
     public constructor() {
     }
@@ -15,16 +15,16 @@ export class CartService {
         this.cartProductList.length = 0;
     }
 
-    onRemove(name: string): void {
-        this.cartProductList.splice(this.getCardProductByName(name).index, 1);
+    onRemove(product: CartProductModel): void {
+        this.cartProductList.splice(this.getCardProductByName(product.name).index, 1);
     }
 
-    onIncreaseProductCount(name: string): void {
-        this.getCardProductByName(name).product.count++;
+    onIncreaseProductCount(product: CartProductModel): void {
+        this.getCardProductByName(product.name).product.count++;
     }
 
-    onReduceProductCount(name: string): void {
-        this.getCardProductByName(name).product.count--;
+    onReduceProductCount(product: CartProductModel): void {
+        this.getCardProductByName(product.name).product.count--;
     }
 
     addProduct(product: ProductModel): void {
@@ -41,7 +41,7 @@ export class CartService {
         }
     }
 
-    getCartProducts(): CartProductList {
+    getCartProducts(): CartProductModel[] {
         return this.cartProductList;
     }
 

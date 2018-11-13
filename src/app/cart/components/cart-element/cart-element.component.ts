@@ -1,6 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { CartProductModel } from '../cart/cart.component';
-import { CartService } from '../../services/cart.service'
+import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
+import { CartProductModel } from '../../models/cart-product.model';
 
 @Component({
     selector: 'app-cart-element',
@@ -10,20 +9,24 @@ import { CartService } from '../../services/cart.service'
 export class CartElementComponent implements OnInit {
     @Input() cartProduct: CartProductModel;
 
-    public constructor(private cartService: CartService) { }
+    @Output() removeProductFromCart: EventEmitter<CartProductModel> = new EventEmitter();
+    @Output() increaseProductCount: EventEmitter<CartProductModel> = new EventEmitter();
+    @Output() reduceProductCount: EventEmitter<CartProductModel> = new EventEmitter();
+
+    public constructor() { }
 
     ngOnInit() {
     }
 
-    onRemove(name: string): void {
-        this.cartService.onRemove(name);
+    onRemove(product: CartProductModel): void {
+        this.removeProductFromCart.emit(product);
     }
 
-    onIncreaseProductCount(name: string): void {
-        this.cartService.onIncreaseProductCount(name);
+    onIncreaseProductCount(product: CartProductModel): void {
+        this.increaseProductCount.emit(product);
     }
 
-    onReduceProductCount(name: string): void {
-        this.cartService.onReduceProductCount(name);
+    onReduceProductCount(product: CartProductModel): void {
+        this.reduceProductCount.emit(product);
     }
 }

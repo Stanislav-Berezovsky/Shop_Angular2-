@@ -7,6 +7,7 @@
         <div>Category </div>
     </div>
     <div *ngFor="let productItem of productList">
-        <app-product [product]="productItem"> </app-product>
+        <app-product [product]="productItem" (buyProduct)="onBuy($event)">
+        </app-product>
     </div>
 </div>

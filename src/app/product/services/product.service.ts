@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { ProductCategoryEnum } from '../components/product/product.component';
-import { ProductList } from '../components/product-list/product-list.component';
+import { ProductCategoryEnum } from '../types';
+import { ProductModel } from '../models/product.model';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ProductService {
-    private productList: ProductList = [
+    private productList: ProductModel[] = [
         {
             name: 'Salmon',
             description: 'First description',
@@ -45,7 +45,7 @@ export class ProductService {
 
     constructor() { }
 
-    getAllProducts(): ProductList {
+    getAllProducts(): ProductModel[] {
         return this.productList;
     }
 }

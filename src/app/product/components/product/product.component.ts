@@ -1,19 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { CartService } from '../../../cart/services/cart.service';
+import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
+import { ProductModel } from '../../models/product.model';
 
-export enum ProductCategoryEnum {
-    Chocolate = 'Chocolate',
-    Fish = 'Fish',
-    Tabacco = 'Tabacco'
-}
-
-export interface ProductModel {
-    name: string;
-    description: string;
-    price: number;
-    category: ProductCategoryEnum
-    isAvailable: boolean;
-}
 
 @Component({
     selector: 'app-product',
@@ -23,11 +10,13 @@ export interface ProductModel {
 export class ProductComponent implements OnInit {
     @Input() product: ProductModel;
 
-    public constructor(private cartService: CartService) { }
+    @Output() buyProduct: EventEmitter<ProductModel> = new EventEmitter();
+
+    public constructor() { }
 
     onBuy(selectedProduct: ProductModel): void {
-        this.cartService.addProduct(selectedProduct);
-        console.log(`product was added to cart ${JSON.stringify(selectedProduct)}`);
+        console.log('trigger "ProductListComponent.onBuy"');
+        this.buyProduct.emit(selectedProduct);
     }
 
     ngOnInit() {

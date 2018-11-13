@@ -7,10 +7,15 @@
             <div>Count</div>
         </div>
         <div *ngFor="let cartProduct of cartProductList">
-            <app-cart-element [cartProduct]="cartProduct"> </app-cart-element>
+            <app-cart-element 
+                [cartProduct]="cartProduct" 
+                (removeProductFromCart)="onRemove($event)"
+                (increaseProductCount)="onIncreaseProductCount($event)" 
+                (reduceProductCount)="onReduceProductCount($event)">
+            </app-cart-element>
         </div>
 
-        <button  (click)="onCleanUpCart()"> Clear cart</button> 
+        <button (click)="onCleanUpCart()"> Clear cart</button>
     </div>
 
     <ng-template #emptyCard>
