@@ -19,30 +19,42 @@ export class CartService {
         this.cartProductList.splice(this.getCardProductByName(product.name).index, 1);
     }
 
-    onIncreaseProductCount(product: CartProductModel): void {
-        this.getCardProductByName(product.name).product.count++;
+    onIncreaseProductQuantity(product: CartProductModel): void {
+        this.getCardProductByName(product.name).product.quantity++;
     }
 
-    onReduceProductCount(product: CartProductModel): void {
-        this.getCardProductByName(product.name).product.count--;
+    onReduceProductQuantity(product: CartProductModel): void {
+        this.getCardProductByName(product.name).product.quantity--;
     }
 
     addProduct(product: ProductModel): void {
         const currentProduct = this.getCardProductByName(product.name).product;
 
         if (currentProduct) {
-            currentProduct.count++;
+            currentProduct.quantity++;
         } else {
             this.cartProductList.push({
                 name: product.name,
                 price: product.price,
-                count: 1
+                quantity: 1
             });
         }
     }
 
     getCartProducts(): CartProductModel[] {
         return this.cartProductList;
+    }
+
+    getPurchasesSum(): number {
+        return this.cartProductList.reduce((result, product) => {
+            return result + product.quantity * product.price;
+        }, 0);
+    }
+
+    getPurchasesQuantity(): number {
+        return this.cartProductList.reduce((result, product) => {
+            return result + product.quantity;
+        }, 0);
     }
 
     private getCardProductByName(name: string): { product: CartProductModel, index: number } {
