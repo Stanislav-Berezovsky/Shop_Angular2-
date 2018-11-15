@@ -12,6 +12,14 @@ export class CartComponent implements OnInit {
 
     public constructor(private cartService: CartService) { }
 
+    getPurchasesSum(): number {
+        return this.cartService.getPurchasesSum();
+    }
+
+    getPurchasesQuantity(): number {
+        return this.cartService.getPurchasesQuantity();
+    }
+
     ngOnInit(): void {
         this.cartProductList = this.cartService.getCartProducts();
     }
@@ -20,12 +28,12 @@ export class CartComponent implements OnInit {
         this.cartService.onRemove(product);
     }
 
-    onIncreaseProductCount(product: CartProductModel): void {
-        this.cartService.onIncreaseProductCount(product);
+    onIncreaseProductQuantity(product: CartProductModel): void {
+        this.cartService.onIncreaseProductQuantity(product);
     }
 
-    onReduceProductCount(product: CartProductModel): void {
-        this.cartService.onReduceProductCount(product);
+    onReduceProductQuantity(product: CartProductModel): void {
+        this.cartService.onReduceProductQuantity(product);
     }
 
     onCleanUpCart(): void {

@@ -10,8 +10,8 @@ export class CartElementComponent implements OnInit {
     @Input() cartProduct: CartProductModel;
 
     @Output() removeProductFromCart: EventEmitter<CartProductModel> = new EventEmitter();
-    @Output() increaseProductCount: EventEmitter<CartProductModel> = new EventEmitter();
-    @Output() reduceProductCount: EventEmitter<CartProductModel> = new EventEmitter();
+    @Output() increaseProductQuantity: EventEmitter<CartProductModel> = new EventEmitter();
+    @Output() reduceProductQuantity: EventEmitter<CartProductModel> = new EventEmitter();
 
     public constructor() { }
 
@@ -22,11 +22,11 @@ export class CartElementComponent implements OnInit {
         this.removeProductFromCart.emit(product);
     }
 
-    onIncreaseProductCount(product: CartProductModel): void {
-        this.increaseProductCount.emit(product);
+    onIncreaseProductQuantity(product: CartProductModel): void {
+        this.increaseProductQuantity.emit(product);
     }
 
-    onReduceProductCount(product: CartProductModel): void {
-        this.reduceProductCount.emit(product);
+    onReduceProductQuantity(product: CartProductModel): void {
+        this.reduceProductQuantity.emit(product);
     }
 }

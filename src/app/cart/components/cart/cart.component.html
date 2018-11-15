@@ -4,18 +4,22 @@
         <div class="header">
             <div>Name</div>
             <div>Price($)</div>
-            <div>Count</div>
+            <div>Quantity</div>
         </div>
         <div *ngFor="let cartProduct of cartProductList">
             <app-cart-element 
                 [cartProduct]="cartProduct" 
                 (removeProductFromCart)="onRemove($event)"
-                (increaseProductCount)="onIncreaseProductCount($event)" 
-                (reduceProductCount)="onReduceProductCount($event)">
+                (increaseProductQuantity)="onIncreaseProductQuantity($event)" 
+                (reduceProductQuantity)="onReduceProductQuantity($event)">
             </app-cart-element>
         </div>
 
         <button (click)="onCleanUpCart()"> Clear cart</button>
+        <span class="result-information">Purchases quantity: {{getPurchasesQuantity()}} </span>
+
+        <span class="result-information"> Price: {{getPurchasesSum()}}$</span>
+        
     </div>
 
     <ng-template #emptyCard>
