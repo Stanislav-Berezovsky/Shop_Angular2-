@@ -1,13 +1,14 @@
-import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 import { ProductModel } from '../../models/product.model';
 
 
 @Component({
     selector: 'app-product',
     templateUrl: './product.component.html',
-    styleUrls: ['./product.component.css']
+    styleUrls: ['./product.component.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent  {
     @Input() product: ProductModel;
 
     @Output() buyProduct: EventEmitter<ProductModel> = new EventEmitter();
@@ -17,8 +18,5 @@ export class ProductComponent implements OnInit {
     onBuy(selectedProduct: ProductModel): void {
         console.log('trigger "ProductListComponent.onBuy"');
         this.buyProduct.emit(selectedProduct);
-    }
-
-    ngOnInit() {
     }
 }

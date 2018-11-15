@@ -6,7 +6,7 @@ import { CartProductModel } from '../../models/cart-product.model';
     templateUrl: './cart-element.component.html',
     styleUrls: ['./cart-element.component.css']
 })
-export class CartElementComponent implements OnInit {
+export class CartElementComponent  {
     @Input() cartProduct: CartProductModel;
 
     @Output() removeProductFromCart: EventEmitter<CartProductModel> = new EventEmitter();
@@ -14,9 +14,6 @@ export class CartElementComponent implements OnInit {
     @Output() reduceProductCount: EventEmitter<CartProductModel> = new EventEmitter();
 
     public constructor() { }
-
-    ngOnInit() {
-    }
 
     onRemove(product: CartProductModel): void {
         this.removeProductFromCart.emit(product);
