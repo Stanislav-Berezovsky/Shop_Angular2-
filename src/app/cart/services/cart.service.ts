@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ProductModel } from '../../product/models/product.model';
-import { CartProductModel } from '../models/cart-product.model';
+import { CartProductModel , CartProduct} from '../models/cart-product.model';
 
 @Injectable({
     providedIn: 'root'
@@ -20,24 +20,20 @@ export class CartService {
     }
 
     onIncreaseProductQuantity(product: CartProductModel): void {
-        this.getCardProductByName(product.name).product.quantity++;
+        this.getCardProductByName(product.name).product.increaseQuantity();
     }
 
     onReduceProductQuantity(product: CartProductModel): void {
-        this.getCardProductByName(product.name).product.quantity--;
+        this.getCardProductByName(product.name).product.reduceQuantity();
     }
 
     addProduct(product: ProductModel): void {
         const currentProduct = this.getCardProductByName(product.name).product;
 
         if (currentProduct) {
-            currentProduct.quantity++;
+            currentProduct.increaseQuantity();
         } else {
-            this.cartProductList.push({
-                name: product.name,
-                price: product.price,
-                quantity: 1
-            });
+            this.cartProductList.push( new CartProduct(product.name,product.price));
         }
     }
 
