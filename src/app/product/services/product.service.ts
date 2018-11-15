@@ -45,7 +45,7 @@ export class ProductService {
 
     constructor() { }
 
-    getAllProducts(): ProductModel[] {
+    getProducts(): ProductModel[] {
         return this.productList;
     }
 }
