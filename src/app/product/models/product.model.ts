@@ -1,4 +1,4 @@
-import {ProductCategoryEnum} from '../types';
+import {ProductCategoryEnum} from '../product-category.enum';
 
 export interface ProductModel {
     name: string;

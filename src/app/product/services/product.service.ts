@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ProductCategoryEnum } from '../types';
+import { ProductCategoryEnum } from '../product-category.enum';
 import { ProductModel } from '../models/product.model';
 
 @Injectable({
