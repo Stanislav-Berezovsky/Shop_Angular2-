@@ -1,4 +1,12 @@
-<p>
-  contact-us works (beta component)!
-  {{content | json}}
-</p>
+<div class="contact-us-container">
+    <h2>
+        Contact us works beta component
+    </h2>
+
+    <span class="contact-us-item">Applicatio config: {{appConfig | json}}</span>
+    <span class="contact-us-item">Random string: {{randomString}}</span>
+    <span class="contact-us-item">
+        <button (click)="setUserConfig()">set new config</button>
+        <span>User config: {{userConfig | json}}</span>
+    </span>
+</div>

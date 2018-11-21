@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { LocalStorageService } from './local-storage.service';
 
-interface UserConfig {
+export interface UserConfig {
     id: string;
     login: string;
     email: string;
@@ -15,17 +15,17 @@ export class ConfigOptionsService {
 
     constructor(private localStorageService: LocalStorageService) { }
 
-    set(config: UserConfig): void {
+    setConfig(config: UserConfig): void {
         this.userConfig = config;
         this.localStorageService.setItem(LOCAL_STORAGE_KEY, config);
     }
 
-    getSettings(): UserConfig {
+    getConfig(): UserConfig {
         return this.userConfig;
     }
 
     // should not return User Config object and called just once on service initialization 
-    loadSetting(): UserConfig {
+    loadConfig(): UserConfig {
         this.userConfig = this.localStorageService.getItem(LOCAL_STORAGE_KEY);
         return this.userConfig;
     }

@@ -24,7 +24,7 @@
    например { App: "TaskManager", Ver: "1.0" }. Зарегистрируйте его, используя useValue. + 
 
 5. Создайте сервис GeneratorService, который должен генерировать случайную последовательность символов длины n 
-   из набора a-z, A-Z, 0-9 (n - здается при регистрации сервиса с помощью useFactory). 
+   из набора a-z, A-Z, 0-9 (n - здается при регистрации сервиса с помощью useFactory). +
 
 6. Создайте или используйте ранее созданный CoreModule и зарегистриуйте в нем LocalStorageService, ConfigOptionsService, ConstantsService, GeneratorService
    Подключите модуль к приложению. 
