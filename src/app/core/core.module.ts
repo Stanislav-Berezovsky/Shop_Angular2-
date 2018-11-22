@@ -5,14 +5,17 @@ import { LocalStorageService } from './services/local-storage.service';
 import { ConfigOptionsService } from './services/config-options.service';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 
+import {SharedModule} from '../shared/shared.module';
+
 @NgModule({
     declarations: [ContactUsComponent],
     imports: [
-        CommonModule
+        CommonModule,
+        SharedModule
     ],
     providers: [
         ConfigOptionsService,
-        LocalStorageService
+        LocalStorageService,
     ],
     exports: [ContactUsComponent]
 })

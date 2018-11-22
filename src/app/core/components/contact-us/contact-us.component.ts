@@ -42,6 +42,9 @@ export class ContactUsComponent implements OnInit {
             login: this.userLogin.nativeElement.value
         });
 
+        this.userEmail.nativeElement.value = '';
+        this.userLogin.nativeElement.value = '';
+
         this.userConfig = this.configOptionsService.getConfig();
     }
 }
