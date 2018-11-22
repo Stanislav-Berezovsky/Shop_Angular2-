@@ -17,8 +17,8 @@ export class ProductListComponent implements OnInit {
         this.productList = this.productService.getProducts();
     }
 
-    onBuy(selectedProduct: ProductModel): void {
-        this.cartService.addProduct(selectedProduct);
-        console.log(`product was added to cart ${JSON.stringify(selectedProduct)}`);
+    onBuy(productData: { selectedProduct: ProductModel, count: number}): void {
+        this.cartService.addProduct(productData.selectedProduct, +productData.count || 0 /*write proper validation to number*/);
+        console.log(`product was added to cart ${JSON.stringify(productData)}`);
     }
 }

@@ -13,4 +13,9 @@ div.product{
 
 div.product button{
     margin-left: 10px;
+    margin-right: 10px;
+}
+
+.product-quantity{
+    width: 20px
 }

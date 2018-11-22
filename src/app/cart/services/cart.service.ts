@@ -33,13 +33,13 @@ export class CartService {
         this.setPurchasesQuantityAndPrice();
     }
 
-    addProduct(product: ProductModel): void {
+    addProduct(product: ProductModel, quantity: number = 1): void {
         const currentProduct = this.getCardProductByName(product.name).product;
 
         if (currentProduct) {
-            currentProduct.increaseQuantity();
+            currentProduct.increaseQuantity(quantity);
         } else {
-            this.cartProductList.push(new CartProduct(product.name, product.price));
+            this.cartProductList.push(new CartProduct(product.name, product.price, quantity));
         }
         this.setPurchasesQuantityAndPrice();
     }

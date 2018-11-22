@@ -8,15 +8,15 @@ import { ProductModel } from '../../models/product.model';
     styleUrls: ['./product.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductComponent  {
+export class ProductComponent {
     @Input() product: ProductModel;
 
-    @Output() buyProduct: EventEmitter<ProductModel> = new EventEmitter();
+    @Output() buyProduct: EventEmitter<{ selectedProduct: ProductModel, count: number }> = new EventEmitter();
 
     public constructor() { }
 
-    onBuy(selectedProduct: ProductModel): void {
+    onBuy(selectedProduct: ProductModel, count: number): void {
         console.log('trigger "ProductListComponent.onBuy"');
-        this.buyProduct.emit(selectedProduct);
+        this.buyProduct.emit({ selectedProduct, count });
     }
 }

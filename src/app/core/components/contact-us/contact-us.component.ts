@@ -2,6 +2,7 @@ import { Component, OnInit, Inject, Optional, ViewChild, ElementRef } from '@ang
 import { APP_CONFIG, AppConfigToken } from '../../services/constant.service';
 import { GeneratorToken, GeneratorFactory } from '../../services/generator.factory';
 import { ConfigOptionsService, UserConfig } from '../../services/config-options.service';
+import { LocalStorageService } from '../../services/local-storage.service';
 
 @Component({
     selector: 'app-contact-us',
@@ -23,7 +24,8 @@ export class ContactUsComponent implements OnInit {
     constructor(
         @Inject(AppConfigToken) private appConfig,
         @Inject(GeneratorToken) private randomString: string,
-        @Optional() private configOptionsService: ConfigOptionsService
+        @Optional() private configOptionsService: ConfigOptionsService,
+        private localStorageService: LocalStorageService
     ) { }
 
     ngOnInit() {

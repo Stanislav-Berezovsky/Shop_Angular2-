@@ -3,5 +3,6 @@
     <div>{{product.description}}</div>
     <div>{{product.price}}</div>
     <div>{{product.category}}</div>
-    <button [disabled]="!product.isAvailable" (click)="onBuy(product)">Move to the cart</button>
+    <button [disabled]="!product.isAvailable" (click)="onBuy(product, productQuantity.value)">Move to the cart</button>
+    <input [disabled]="!product.isAvailable" type="text" class="product-quantity" #productQuantity>
 </div>
