@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, Optional } from '@angular/core';
+import { Component, OnInit, Inject, Optional, ViewChild, ElementRef } from '@angular/core';
 import { APP_CONFIG, AppConfigToken } from '../../services/constant.service';
 import { GeneratorToken, GeneratorFactory } from '../../services/generator.factory';
 import { ConfigOptionsService, UserConfig } from '../../services/config-options.service';
@@ -15,6 +15,9 @@ import { ConfigOptionsService, UserConfig } from '../../services/config-options.
     ]
 })
 export class ContactUsComponent implements OnInit {
+    @ViewChild('userEmail') userEmail: ElementRef;
+    @ViewChild('userLogin') userLogin: ElementRef;
+
     private userConfig: UserConfig;
 
     constructor(
@@ -32,10 +35,11 @@ export class ContactUsComponent implements OnInit {
     }
 
     setUserConfig() {
+        const a = this.userLogin;
         this.configOptionsService.setConfig({
             id: this.randomString,
-            email: '',
-            login: ''
+            email: this.userEmail.nativeElement.value,
+            login: this.userLogin.nativeElement.value
         });
 
         this.userConfig = this.configOptionsService.getConfig();
