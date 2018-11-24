@@ -1,8 +1,8 @@
 <div appCustomHover class="product">
     <div>{{product.name}}</div>
     <div>{{product.description}}</div>
-    <div>{{product.price}}</div>
-    <div>{{product.category}}</div>
+    <div>{{product.price | currency:'USD'}}</div>
+    <div>{{product.category | uppercase }}</div>
     <button [disabled]="!product.isAvailable" (click)="onBuy(product, productQuantity.value)">Move to the cart</button>
     <input [disabled]="!product.isAvailable" type="text" class="product-quantity" #productQuantity>
 </div>

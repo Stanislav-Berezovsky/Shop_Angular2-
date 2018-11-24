@@ -1,6 +1,6 @@
 <div  class="product" appCustomHover>
         <div>{{cartProduct.name}}</div>
-        <div>{{cartProduct.price}}</div>
+        <div>{{cartProduct.price | currency:'USD'}}</div>
         <div>{{cartProduct.quantity}}</div>
         <button (click)="onIncreaseProductQuantity(cartProduct)">+</button>
         <button [disabled]="!cartProduct.quantity" (click)="onReduceProductQuantity(cartProduct)">-</button>

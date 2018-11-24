@@ -3,23 +3,20 @@
     <div *ngIf="cartProductList && cartProductList.length; else emptyCard">
         <div class="header">
             <div>Name</div>
-            <div>Price($)</div>
+            <div>Price</div>
             <div>Quantity</div>
         </div>
         <div *ngFor="let cartProduct of cartProductList">
-            <app-cart-element 
-                [cartProduct]="cartProduct" 
-                (removeProductFromCart)="onRemove($event)"
-                (increaseProductQuantity)="onIncreaseProductQuantity($event)" 
-                (reduceProductQuantity)="onReduceProductQuantity($event)">
+            <app-cart-element [cartProduct]="cartProduct" (removeProductFromCart)="onRemove($event)"
+                (increaseProductQuantity)="onIncreaseProductQuantity($event)" (reduceProductQuantity)="onReduceProductQuantity($event)">
             </app-cart-element>
         </div>
 
         <button (click)="onCleanUpCart()"> Clear cart</button>
-        <span class="result-information">Purchases quantity: {{getPurchasesQuantity()}} </span>
+        <span class="result-information">Purchases quantity: {{getPurchasesQuantity() | number}} </span>
 
-        <span class="result-information"> Price: {{getPurchasesSum()}}$</span>
-        
+        <span class="result-information"> Price: {{getPurchasesSum() | currency:'USD'}}$</span>
+
     </div>
 
     <ng-template #emptyCard>

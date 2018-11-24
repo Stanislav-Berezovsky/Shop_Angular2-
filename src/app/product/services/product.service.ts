@@ -45,7 +45,7 @@ export class ProductService {
 
     constructor() { }
 
-    getProducts(): ProductModel[] {
-        return this.productList;
+    getProducts(): Promise<ProductModel[]> {
+        return Promise.resolve(this.productList);
     }
 }
