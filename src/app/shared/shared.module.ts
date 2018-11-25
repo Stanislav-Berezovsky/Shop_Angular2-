@@ -9,6 +9,6 @@ import { CustomSortPipe } from './custom-sort.pipe';
     imports: [
         CommonModule
     ],
-    exports: [CustomHoverDirective, CustomBorderDirective]
+    exports: [CustomHoverDirective, CustomBorderDirective, CustomSortPipe]
 })
 export class SharedModule { }

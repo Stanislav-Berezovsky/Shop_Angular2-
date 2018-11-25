@@ -1,12 +1,17 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'customSort'
+    name: 'customSort',
+    pure: false
 })
 export class CustomSortPipe implements PipeTransform {
+    transform(products: any, sortField: string, increase: boolean = false): any {
+        return products.sort((firstProduct, secondProduct) => {
+            if (increase) {
+                return firstProduct[sortField] > secondProduct[sortField] ? 1 : -1;
+            }
 
-  transform(value: any, args?: any): any {
-    return null;
-  }
-
+            return firstProduct[sortField] > secondProduct[sortField] ? -1 : 1;
+        });
+    }
 }

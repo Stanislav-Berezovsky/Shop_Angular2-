@@ -6,7 +6,7 @@
             <div>Price</div>
             <div>Quantity</div>
         </div>
-        <div *ngFor="let cartProduct of cartProductList">
+        <div *ngFor="let cartProduct of (cartProductList | customSort: 'price' : true)">
             <app-cart-element [cartProduct]="cartProduct" (removeProductFromCart)="onRemove($event)"
                 (increaseProductQuantity)="onIncreaseProductQuantity($event)" (reduceProductQuantity)="onReduceProductQuantity($event)">
             </app-cart-element>
