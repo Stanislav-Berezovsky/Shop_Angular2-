@@ -1,12 +1,27 @@
 <div>
     <h2>Cart</h2>
+
     <div *ngIf="cartProductList && cartProductList.length; else emptyCard">
+        <div>
+            <label>Sort params</label>
+            <select class="sort-box" (change)="onSortFieldChange($event.target.value)">
+                <option>name</option>
+                <option>price</option>
+                <option>quantity</option>
+            </select>
+
+            <select class="sort-box" (change)="onSortDirectionChange($event.target.value)">
+                <option>increase</option>
+                <option selected>decrease</option>
+            </select>
+        </div>
+
         <div class="header">
             <div>Name</div>
             <div>Price</div>
             <div>Quantity</div>
         </div>
-        <div *ngFor="let cartProduct of (cartProductList | customSort: 'price' : true)">
+        <div *ngFor="let cartProduct of (cartProductList | customSort: sortField : increaseSortDirection)">
             <app-cart-element [cartProduct]="cartProduct" (removeProductFromCart)="onRemove($event)"
                 (increaseProductQuantity)="onIncreaseProductQuantity($event)" (reduceProductQuantity)="onReduceProductQuantity($event)">
             </app-cart-element>

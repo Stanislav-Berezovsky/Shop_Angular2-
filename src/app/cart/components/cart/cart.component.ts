@@ -8,6 +8,9 @@ import { CartProductModel } from '../../models/cart-product.model';
     styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+    private sortField = 'name';
+    private increaseSortDirection = false;
+
     cartProductList: CartProductModel[] = [];
 
     public constructor(private cartService: CartService) { }
@@ -38,5 +41,13 @@ export class CartComponent implements OnInit {
 
     onCleanUpCart(): void {
         this.cartService.onCleanUpCart();
+    }
+
+    onSortFieldChange(value: string): void {
+        this.sortField = value;
+    }
+
+    onSortDirectionChange(value: string): void {
+        this.increaseSortDirection = (value === 'increase');
     }
 }
