@@ -19,11 +19,11 @@ export class ContactUsComponent implements OnInit {
     @ViewChild('userEmail') userEmail: ElementRef;
     @ViewChild('userLogin') userLogin: ElementRef;
 
-    private userConfig: UserConfig;
+    userConfig: UserConfig;
 
     constructor(
-        @Inject(AppConfigToken) private appConfig,
-        @Inject(GeneratorToken) private randomString: string,
+        @Inject(AppConfigToken) public appConfig,
+        @Inject(GeneratorToken) public randomString: string,
         @Optional() private configOptionsService: ConfigOptionsService,
         private localStorageService: LocalStorageService
     ) { }
