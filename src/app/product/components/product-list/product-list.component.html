@@ -2,12 +2,11 @@
     <h2>List of products</h2>
     <div class="header">
         <div>Name</div>
-        <div>Description</div>
         <div>Price</div>
         <div>Category </div>
     </div>
     <div *ngFor="let productItem of productList | async ">
-        <app-product [product]="productItem" (buyProduct)="onBuy($event)">
+        <app-product [product]="productItem" (buyProduct)="onBuy($event)" (viewProduct)="onGoToProductView($event)">
         </app-product>
     </div>
 </div>

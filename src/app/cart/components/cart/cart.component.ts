@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { CartProductModel } from '../../models/cart-product.model';
 
+import { Router } from '@angular/router';
+
 @Component({
-    selector: 'app-cart',
     templateUrl: './cart.component.html',
     styleUrls: ['./cart.component.css']
 })
@@ -13,7 +14,10 @@ export class CartComponent implements OnInit {
 
     cartProductList: CartProductModel[] = [];
 
-    public constructor(private cartService: CartService) { }
+    public constructor(
+        private cartService: CartService,
+        private router: Router
+    ) { }
 
     getPurchasesSum(): number {
         return this.cartService.getPurchasesSum();
@@ -41,6 +45,11 @@ export class CartComponent implements OnInit {
 
     onCleanUpCart(): void {
         this.cartService.onCleanUpCart();
+    }
+
+    onFormOrder(): void {
+        const link = ['/orders/add'];
+        this.router.navigate(link);
     }
 
     onSortFieldChange(value: string): void {

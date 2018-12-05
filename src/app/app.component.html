@@ -1,16 +1,29 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-    <h1 #appTitle></h1>
-</div>
+<header>
+    <ul>
+        <li>
+            <a [routerLink]="['/products']">Products</a>
+        </li>
+        <li>
+            <a routerLink="/cart">Cart</a>
+        </li>
+        <li>
+            <a routerLink="/orders">Orders</a>
+        </li>
+        <li class="app-login">
+            <a routerLink="/login">Log in</a>
+        </li>
+
+    </ul>
+
+    <h1 class="app-title" style="text-align:center" #appTitle></h1>
+</header>
+
 
 <div class="app-container">
-    <div class="app-component">
-        <app-product-list></app-product-list>
-    </div>
-    <div class="app-component">
-        <app-cart></app-cart>
-    </div>
-    <div class="app-component">
+    <!-- <div class="app-component">
         <app-contact-us></app-contact-us>
-    </div>
+    </div> -->
+
+    <router-outlet (activate)='onActivate($event)' (deactivate)='onDeactivate($event)'>
+    </router-outlet>
 </div>

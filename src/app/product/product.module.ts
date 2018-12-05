@@ -3,20 +3,22 @@ import { CommonModule } from '@angular/common';
 
 import {SharedModule} from '../shared/shared.module';
 
-import { ProductComponent } from './components/product/product.component';
-import { ProductListComponent } from './components/product-list/product-list.component';
-import { ProductService } from './services/product.service';
-
+import { ProductRoutingModule } from './product-routing.module';
+import { ProductComponent, ProductListComponent, ProductCardComponent, ProductFormComponent } from './components';
+import { ProductsComponent } from './products.component';
 
 @NgModule({
     declarations: [
         ProductComponent,
-        ProductListComponent
+        ProductListComponent,
+        ProductCardComponent,
+        ProductFormComponent,
+        ProductsComponent
     ],
     imports: [
         CommonModule,
-        SharedModule
-    ],
-    exports: [ProductListComponent]
+        SharedModule,
+        ProductRoutingModule
+    ]
 })
 export class ProductModule { }

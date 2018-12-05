@@ -10,6 +10,14 @@ export class AppComponent implements AfterViewInit {
     appTitle: ElementRef;
 
     ngAfterViewInit() {
-        this.appTitle.nativeElement.innerText  = 'My shop';
+        this.appTitle.nativeElement.innerText = 'My shop';
+    }
+
+    onActivate($event) {
+        console.log('Activated Component', $event);
+    }
+
+    onDeactivate($event) {
+        console.log('Deactivated Component', $event);
     }
 }

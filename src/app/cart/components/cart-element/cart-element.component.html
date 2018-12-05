@@ -1,8 +1,8 @@
-<div  class="product" appCustomHover>
-        <div>{{cartProduct.name}}</div>
-        <div>{{cartProduct.price | currency:'USD'}}</div>
-        <div>{{cartProduct.quantity}}</div>
-        <button (click)="onIncreaseProductQuantity(cartProduct)">+</button>
-        <button [disabled]="!cartProduct.quantity" (click)="onReduceProductQuantity(cartProduct)">-</button>
-        <button (click)="onRemove(cartProduct)">remove</button>
+<div class="product" appCustomHover>
+    <span>{{cartProduct.name}}</span>
+    <span>{{cartProduct.price | currency:'USD'}}</span>
+    <span>{{cartProduct.quantity}}</span>
 </div>
+<button (click)="onIncreaseProductQuantity(cartProduct)">+</button>
+<button [disabled]="!cartProduct.quantity" (click)="onReduceProductQuantity(cartProduct)">-</button>
+<button (click)="onRemove(cartProduct)">remove</button>

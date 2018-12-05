@@ -1,0 +1,35 @@
+.product {
+    border: 2px solid black;
+    width: 50%;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.product-name {
+    text-align: center;
+    margin-top: 0px;
+}
+
+.product-description {
+    margin: 10px;
+    font-size: 150%;
+}
+
+.product-price {
+    float: right;
+}
+
+.product-category {
+    float: left;
+}
+
+.product-price,
+.product-category {
+    margin: 10px;
+    font-weight: bold;
+}
+
+button {
+    margin: 10px;
+    width: 150px;
+}

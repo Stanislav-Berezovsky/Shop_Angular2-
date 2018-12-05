@@ -28,6 +28,7 @@
         </div>
 
         <button (click)="onCleanUpCart()"> Clear cart</button>
+        <button (click)="onFormOrder()"> Form order</button>
         <span class="result-information">Purchases quantity: {{getPurchasesQuantity() | number}} </span>
 
         <span class="result-information"> Price: {{getPurchasesSum() | currency:'USD'}}$</span>

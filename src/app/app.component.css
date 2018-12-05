@@ -1,8 +1,43 @@
-.app-container{
-    width: 60%;
+.app-container {
+    width: 80%;
     position: relative;
     left: 10%;
 }
-.app-component{
+
+.app-component {
     margin-top: 10px;
+}
+
+header {
+    height: 50px;
+    background-color: rgb(14, 53, 85);
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+.app-login {
+    float: right;
+}
+
+li a {
+    text-decoration: none;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+}
+
+.app-title {
+    margin: 0;
+    padding: 0;
 }

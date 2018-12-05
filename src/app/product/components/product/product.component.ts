@@ -12,11 +12,16 @@ export class ProductComponent {
     @Input() product: ProductModel;
 
     @Output() buyProduct: EventEmitter<{ selectedProduct: ProductModel, count: number }> = new EventEmitter();
+    @Output() viewProduct: EventEmitter<ProductModel> = new EventEmitter();
 
     public constructor() { }
 
     onBuy(selectedProduct: ProductModel, count: number): void {
         console.log('trigger "ProductListComponent.onBuy"');
         this.buyProduct.emit({ selectedProduct, count });
+    }
+
+    onGoToProductView(selectedProduct: ProductModel): void {
+        this.viewProduct.emit(selectedProduct);
     }
 }

@@ -1,5 +1,5 @@
-div.product div{
-    display : inline-block;
+.product span {
+    display: inline-block;
     border-right: 1px solid black;
     border-bottom: 1px solid black;
     width: 15%;
@@ -7,15 +7,12 @@ div.product div{
     height: 25px;
 }
 
-div.product{
+.product {
     border-left: 1px solid black;
+    display: inline;
 }
 
-div.product button{
-    margin-left: 10px;
-}
-
-div.product button{
+button {
     margin-left: 10px;
     border: 1px solid black;
     min-width: 30px;

@@ -1,0 +1,17 @@
+<h1>Purchases history</h1>
+
+
+<div *ngIf="purchases && purchases.length; else emptySection">
+    {{purchases | json}}
+
+    <div *ngFor="let purchase of purchases">
+        <app-order>
+        </app-order>
+    </div>
+</div>
+
+<ng-template #emptySection>
+    <div class="empty-section">
+        You have never done purchases in our shop :(
+    </div>
+</ng-template>

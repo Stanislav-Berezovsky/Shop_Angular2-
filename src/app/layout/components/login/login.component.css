@@ -1,0 +1,14 @@
+button {
+    width: 100px;
+}
+
+div {
+    margin-bottom: 10px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.auth-error {
+    color: red;
+    margin-top: 10px;
+}
