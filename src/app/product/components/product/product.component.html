@@ -4,5 +4,7 @@
     <span class="product-cell">{{product.category | uppercase }}</span>
 </div>
 
-<button [disabled]="!product.isAvailable" (click)="onBuy(product, productQuantity.value)">Move to the cart</button>
-<input [disabled]="!product.isAvailable" type="text" class="product-quantity" #productQuantity>
+<button (click)="onEdit(product)">Edit</button>
+<button [disabled]=" !product.isAvailable" (click)="onBuy(product, productQuantity.value)">Move
+    to the cart</button>
+<input [disabled]="!product.isAvailable" type="number" min="0" class="product-quantity" #productQuantity>

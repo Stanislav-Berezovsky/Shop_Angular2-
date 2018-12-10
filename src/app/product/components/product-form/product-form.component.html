@@ -1,3 +1,18 @@
-<p>
-  product-form works!
-</p>
+<form (ngSubmit)="onSave()" id="product-form" #form="ngForm">
+    <div>
+        <label for="product-name">Name:</label>
+        <div>
+            <input type="text" id="product-name" name="product-name" required [(ngModel)]="product.name">
+        </div>
+    </div>
+    <div>
+        <label for="product-price">Price:</label>
+        <div>
+            <input type="number" min="0" id="product-price" name="product-price" required [(ngModel)]="product.price">
+        </div>
+    </div>
+    <button type="submit" form="product-form" [disabled]="form.invalid">
+        Save product
+    </button>
+    <button (click)="onGoToHomePage()">Back</button>
+</form>

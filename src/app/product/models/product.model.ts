@@ -7,5 +7,9 @@ export interface ProductModel {
     imgUrl?: string;
     price: number;
     category?: ProductCategoryEnum;
-    isAvailable: boolean;
+    isAvailable?: boolean;
 }
+
+// export class Product implements ProductModel {
+//     constructor()
+// }

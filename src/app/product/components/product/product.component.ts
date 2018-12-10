@@ -11,6 +11,7 @@ import { ProductModel } from '../../models/product.model';
 export class ProductComponent {
     @Input() product: ProductModel;
 
+    @Output() editProduct: EventEmitter<ProductModel> = new EventEmitter();
     @Output() buyProduct: EventEmitter<{ selectedProduct: ProductModel, count: number }> = new EventEmitter();
     @Output() viewProduct: EventEmitter<ProductModel> = new EventEmitter();
 
@@ -19,6 +20,10 @@ export class ProductComponent {
     onBuy(selectedProduct: ProductModel, count: number): void {
         console.log('trigger "ProductListComponent.onBuy"');
         this.buyProduct.emit({ selectedProduct, count });
+    }
+
+    onEdit(selectedProduct: ProductModel) {
+        this.editProduct.emit(selectedProduct);
     }
 
     onGoToProductView(selectedProduct: ProductModel): void {

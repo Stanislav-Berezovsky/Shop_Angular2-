@@ -57,4 +57,12 @@ export class ProductService {
     getProductById(id: string): ProductModel {
         return this.productList.find(product => product.id === id);
     }
+
+    updateProduct(product: ProductModel): void {
+
+    }
+
+    createProduct(product: ProductModel): void {
+
+    }
 }

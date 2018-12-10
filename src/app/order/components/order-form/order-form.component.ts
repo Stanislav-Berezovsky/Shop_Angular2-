@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { ContactModel } from '../../models/contact.model';
 import { OrderService } from '../../services/order.service';
@@ -15,7 +16,10 @@ export class OrderFormComponent implements OnInit {
         address: ''
     };
 
-    constructor(private orderService: OrderService) { }
+    constructor(
+        private orderService: OrderService,
+        private router: Router
+    ) { }
 
     ngOnInit() {
     }
@@ -26,5 +30,8 @@ export class OrderFormComponent implements OnInit {
         };
 
         this.orderService.buildPurchase(contact);
+        alert('thank you for the purhase, we will contact you in a minute');
+
+        this.router.navigate(['']);
     }
 }

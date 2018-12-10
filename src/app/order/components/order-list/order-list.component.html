@@ -2,10 +2,8 @@
 
 
 <div *ngIf="purchases && purchases.length; else emptySection">
-    {{purchases | json}}
-
     <div *ngFor="let purchase of purchases">
-        <app-order>
+        <app-order [purchase]="purchase">
         </app-order>
     </div>
 </div>
