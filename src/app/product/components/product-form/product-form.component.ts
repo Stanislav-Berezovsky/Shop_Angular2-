@@ -4,6 +4,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 
+import { CanComponentDeactivate } from '../../../core/guards/interfaces/can-component-deactivate.interface';
+import { DialogService } from '../../../core/services/dialog.service';
+
 import { ProductModel } from '../../models/product.model';
 import { ProductService } from '../../services/product.service';
 
@@ -12,7 +15,7 @@ import { ProductService } from '../../services/product.service';
     templateUrl: './product-form.component.html',
     styleUrls: ['./product-form.component.css']
 })
-export class ProductFormComponent implements OnInit {
+export class ProductFormComponent implements OnInit, CanComponentDeactivate {
     product: ProductModel = {
         id: '',
         name: '',
@@ -21,6 +24,7 @@ export class ProductFormComponent implements OnInit {
 
     constructor(
         private productService: ProductService,
+        private dialogService: DialogService,
         private router: Router
     ) { }
 
@@ -43,5 +47,9 @@ export class ProductFormComponent implements OnInit {
 
     onGoToHomePage() {
         this.router.navigate(['/products']);
+    }
+
+    canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
+        return this.dialogService.confirm('Discard changes?');
     }
 }

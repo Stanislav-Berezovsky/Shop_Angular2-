@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ProductListComponent, ProductCardComponent , ProductFormComponent} from './components';
+
+import { CanDeactivateGuard } from './../core/guards/can-deactivate.guard';
+import { ProductListComponent, ProductCardComponent, ProductFormComponent } from './components';
 import { ProductsComponent } from './products.component';
 
 const routes: Routes = [
@@ -10,11 +12,13 @@ const routes: Routes = [
         children: [
             {
                 path: 'add',
-                component: ProductFormComponent
+                component: ProductFormComponent,
+                canDeactivate: [CanDeactivateGuard],
             },
             {
                 path: 'edit/:productId',
-                component: ProductFormComponent
+                component: ProductFormComponent,
+                canDeactivate: [CanDeactivateGuard],
             },
             {
                 path: ':productId',
