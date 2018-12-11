@@ -5,14 +5,14 @@
         <div>Price</div>
         <div>Category </div>
     </div>
-    <div *ngFor="let productItem of productList | async ">
+    <div *ngFor="let productItem of productList$ | async ">
         <app-product [product]="productItem" (buyProduct)="onBuy($event)" (viewProduct)="onGoToProductView($event)"
             (editProduct)="onEditProduct($event)">
         </app-product>
     </div>
 
     <div class="footer-container">
-        <button class="footer-button" (click)="onAddNewProduct()">Add new product</button>
+        <button class="footer-button" (click)="onCreateProduct()">Create product</button>
         <button class="footer-button" (click)="onGoToCart()">Go to cart</button>
     </div>
 </div>

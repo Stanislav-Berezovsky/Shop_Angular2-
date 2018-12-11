@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
+import { ProductServicesModule } from '../product-services.module';
 import { ProductCategoryEnum } from '../models/product-category.enum';
 import { ProductModel } from '../models/product.model';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: ProductServicesModule
 })
 export class ProductService {
     private productList: ProductModel[] = [
         {
-            id: '1',
+            id: 1,
             name: 'Salmon',
             description: 'First description',
             price: 4,
@@ -16,7 +17,7 @@ export class ProductService {
             isAvailable: true
         },
         {
-            id: '2',
+            id: 2,
             name: 'Marlboro',
             description: 'Second description',
             price: 2,
@@ -24,14 +25,14 @@ export class ProductService {
             isAvailable: true
         },
         {
-            id: '3',
+            id: 3,
             name: 'Trout',
             description: 'Third description',
             price: 3,
             category: ProductCategoryEnum.Fish,
             isAvailable: true
         }, {
-            id: '4',
+            id: 4,
             name: 'Alpen gold',
             description: 'Fourth description',
             price: 4,
@@ -39,7 +40,7 @@ export class ProductService {
             isAvailable: true
         },
         {
-            id: '5',
+            id: 5,
             name: 'Kent',
             description: 'Fifth description',
             price: 2,
@@ -54,7 +55,7 @@ export class ProductService {
         return Promise.resolve(this.productList);
     }
 
-    getProductById(id: string): ProductModel {
+    getProductById(id: number): ProductModel {
         return this.productList.find(product => product.id === id);
     }
 

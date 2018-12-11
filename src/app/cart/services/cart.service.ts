@@ -67,10 +67,10 @@ export class CartService {
     }
 
     private setPurchasesQuantityAndPrice(): void {
-        const result = this.cartProductList.reduce((result, product) => {
-            result.price = result.price + product.quantity * product.price;
-            result.quantity = result.quantity + product.quantity;
-            return result;
+        const result = this.cartProductList.reduce((res, product) => {
+            res.price = res.price + product.quantity * product.price;
+            res.quantity = res.quantity + product.quantity;
+            return res;
         }, { price: 0, quantity: 0 });
 
         this.cartProducstQuantity = result.quantity;

@@ -21,7 +21,7 @@ export class ProductCardComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        const id = this.route.snapshot.paramMap.get('productId');
+        const id = +this.route.snapshot.paramMap.get('productId');
         this.product = this.productService.getProductById(id);
     }
 

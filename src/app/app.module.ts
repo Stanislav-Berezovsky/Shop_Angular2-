@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ProductModule } from './product/product.module';
@@ -17,6 +18,7 @@ import { OrderModule } from './order/order.module';
     ],
     imports: [
         BrowserModule,
+        HttpClientModule,
         LayoutModule,
         ProductModule,
         CartModule,

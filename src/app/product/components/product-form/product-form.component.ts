@@ -17,7 +17,7 @@ import { ProductService } from '../../services/product.service';
 })
 export class ProductFormComponent implements OnInit, CanComponentDeactivate {
     product: ProductModel = {
-        id: '',
+        id: null,
         name: '',
         price: 0
     };
@@ -42,7 +42,7 @@ export class ProductFormComponent implements OnInit, CanComponentDeactivate {
             this.productService.createProduct(product);
             this.onGoToHomePage();
         }
-        //this.originalUser = { ...this.user };
+        // this.originalUser = { ...this.user };
     }
 
     onGoToHomePage() {

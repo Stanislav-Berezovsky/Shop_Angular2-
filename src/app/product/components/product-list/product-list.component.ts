@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+
+// rxjs
+import { Observable, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 import { ProductModel } from '../../models/product.model';
-import { ProductService } from '../../services/product.service';
+import { ProductObservableService } from '../../services';
 import { CartService } from '../../../cart/services/cart.service';
 
 @Component({
@@ -10,12 +14,16 @@ import { CartService } from '../../../cart/services/cart.service';
     styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-    productList: Promise<ProductModel[]>;
+    productList$: Observable<ProductModel[]>;
 
-    public constructor(private productService: ProductService, private cartService: CartService, private router: Router) { }
+    public constructor(
+        private productObservableService: ProductObservableService,
+        private cartService: CartService,
+        private router: Router
+    ) { }
 
     ngOnInit() {
-        this.productList = this.productService.getProducts();
+        this.productList$ = this.productObservableService.getProducts();
     }
 
     onBuy(productData: { selectedProduct: ProductModel, count: number }): void {
@@ -33,7 +41,7 @@ export class ProductListComponent implements OnInit {
         this.router.navigate(link);
     }
 
-    onAddNewProduct() {
+    onCreateProduct() {
         const link = ['products/add/'];
         this.router.navigate(link);
     }

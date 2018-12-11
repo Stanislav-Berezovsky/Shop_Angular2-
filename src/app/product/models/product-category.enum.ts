@@ -1,5 +1,6 @@
 export enum ProductCategoryEnum {
     Chocolate = 'Chocolate',
     Fish = 'Fish',
-    Tabacco = 'Tabacco'
+    Tabacco = 'Tabacco',
+    NotDefined = 'Not defined'
 }
