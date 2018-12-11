@@ -1,44 +1,44 @@
 {
-    "products": [
-        {
-            "id": 1,
-            "name": "Salmon",
-            "description": "First description",
-            "price": 4,
-            "category": "Fish",
-            "isAvailable": true
-        },
-        {
-            "id": 2,
-            "name": "Marlboro",
-            "description": "Second description",
-            "price": 2,
-            "category": "Tabacco",
-            "isAvailable": true
-        },
-        {
-            "id": 3,
-            "name": "Trout",
-            "description": "Third description",
-            "price": 3,
-            "category": "Fish",
-            "isAvailable": true
-        },
-        {
-            "id": 4,
-            "name": "Alpen gold",
-            "description": "Fourth description",
-            "price": 4,
-            "category": "Chocolate",
-            "isAvailable": true
-        },
-        {
-            "id": 5,
-            "name": "Kent",
-            "description": "Fifth description",
-            "price": 2,
-            "category": "Tabacco",
-            "isAvailable": false
-        }
-    ]
+  "products": [
+    {
+      "id": 1,
+      "name": "Salmon",
+      "description": "First description",
+      "price": 4,
+      "category": "Fish",
+      "isAvailable": true
+    },
+    {
+      "id": 2,
+      "name": "Marlboro",
+      "description": "Second description",
+      "price": 1,
+      "category": "Tabacco",
+      "isAvailable": true
+    },
+    {
+      "id": 3,
+      "name": "Trout",
+      "description": "Third description",
+      "price": 3,
+      "category": "Fish",
+      "isAvailable": true
+    },
+    {
+      "id": 4,
+      "name": "Alpen gold",
+      "description": "Fourth description",
+      "price": 3,
+      "category": "Chocolate",
+      "isAvailable": true
+    },
+    {
+      "id": 5,
+      "name": "Kent",
+      "description": "Fifth description",
+      "price": 2,
+      "category": "Tabacco",
+      "isAvailable": false
+    }
+  ]
 }

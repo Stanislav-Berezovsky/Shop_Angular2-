@@ -46,6 +46,10 @@ export class ProductListComponent implements OnInit {
         this.router.navigate(link);
     }
 
+    onDeleteProduct(productData: ProductModel) {
+        this.productList$ = this.productObservableService.deleteProduct(productData);
+    }
+
     onGoToCart() {
         const link = ['cart'];
         this.router.navigate(link);

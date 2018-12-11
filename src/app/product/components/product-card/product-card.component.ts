@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import { pluck } from 'rxjs/operators';
+
 import { ProductModel } from '../../models/product.model';
-import { ProductService } from '../../services/product.service';
 import { CartService } from 'src/app/cart/services/cart.service';
 
 
@@ -16,13 +17,15 @@ export class ProductCardComponent implements OnInit {
     constructor(
         private router: Router,
         private route: ActivatedRoute,
-        private productService: ProductService,
         private cartService: CartService
     ) { }
 
     ngOnInit() {
-        const id = +this.route.snapshot.paramMap.get('productId');
-        this.product = this.productService.getProductById(id);
+        this.route.data.pipe(pluck('product')).subscribe((product: ProductModel) => {
+            this.product = {
+                ...product
+            };
+        });
     }
 
     onGoToHomePage() {

@@ -21,14 +21,14 @@ const routes: Routes = [
                 component: ProductFormComponent,
                 canDeactivate: [CanDeactivateGuard],
                 resolve: {
-                    user: ProductResolveGuard
+                    product: ProductResolveGuard
                 }
             },
             {
                 path: ':productId',
                 component: ProductCardComponent,
                 resolve: {
-                    user: ProductResolveGuard
+                    product: ProductResolveGuard
                 }
             },
             {

@@ -37,6 +37,38 @@ export class ProductObservableService {
             );
     }
 
+    updateProduct(product: ProductModel): Observable<ProductModel> {
+        const url = `${this.productsUrl}/${product.id}`,
+            body = JSON.stringify(product),
+            options = {
+                headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+            };
+
+        return this.http.put<ProductModel>(url, body, options)
+            .pipe(catchError(this.handleError));
+    }
+
+    createProduct(product: ProductModel): Observable<ProductModel> {
+        const url = this.productsUrl,
+            body = JSON.stringify(product),
+            options = {
+                headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+            };
+        return this.http.post<ProductModel>(url, body, options)
+            .pipe(
+                catchError(this.handleError)
+            );
+    }
+
+    deleteProduct(product: ProductModel): Observable<ProductModel[]> {
+        const url = `${this.productsUrl}/${product.id}`;
+
+        return this.http.delete(url)
+            .pipe(
+                concatMap(() => this.getProducts())
+            );
+    }
+
     private handleError(err: HttpErrorResponse) {
         let errorMessage: string;
 
