@@ -2,9 +2,8 @@ import { Component, OnInit, Inject, Optional, ViewChild, ElementRef } from '@ang
 import { APP_CONFIG, AppConfigToken } from '../../services/constant.service';
 
 import { GeneratorToken, GeneratorFactory } from '../../services/generator.factory';
-import { ConfigOptionsService, UserConfig } from '../../services/config-options.service';
-import { LocalStorageService } from '../../services/local-storage.service';
-import { AppConfigHttpService } from '../../services/app-config-http.service';
+import { UserOptionsService, UserConfig } from '../../services/user-options.service';
+import { AppSettingService } from '../../services/app-setting.service';
 import { AppConfigModel } from '../../models/app-config.model';
 
 @Component({
@@ -14,7 +13,7 @@ import { AppConfigModel } from '../../models/app-config.model';
     providers: [
         { provide: AppConfigToken, useValue: APP_CONFIG },
         { provide: GeneratorToken, useFactory: GeneratorFactory(5) },
-        ConfigOptionsService
+        UserOptionsService
 
     ]
 })
@@ -28,13 +27,12 @@ export class ContactUsComponent implements OnInit {
     constructor(
         @Inject(AppConfigToken) private appConfig,
         @Inject(GeneratorToken) public randomString: string,
-        @Optional() private configOptionsService: ConfigOptionsService,
-        private appConfigHttpService: AppConfigHttpService,
-        private localStorageService: LocalStorageService
+        @Optional() private configOptionsService: UserOptionsService,
+        private appSettingService: AppSettingService
     ) { }
 
     ngOnInit() {
-        this.applicationConfig = this.appConfigHttpService.getAppConfig()
+        this.applicationConfig = this.appSettingService.getAppConfig()
             .then(appConfig => {
                 if (!appConfig) {
                     appConfig = this.appConfig;

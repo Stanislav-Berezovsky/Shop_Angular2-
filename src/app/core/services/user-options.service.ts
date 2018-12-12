@@ -10,7 +10,7 @@ export interface UserConfig {
 const LOCAL_STORAGE_KEY = 'USER_CONFIG';
 
 @Injectable()
-export class ConfigOptionsService {
+export class UserOptionsService {
     private userConfig: UserConfig;
 
     constructor(private localStorageService: LocalStorageService) { }
@@ -24,7 +24,7 @@ export class ConfigOptionsService {
         return this.userConfig;
     }
 
-    // should not return User Config object and called just once on service initialization 
+    // should not return User Config object and called just once on service initialization
     loadConfig(): UserConfig {
         this.userConfig = this.localStorageService.getItem(LOCAL_STORAGE_KEY);
         return this.userConfig;
