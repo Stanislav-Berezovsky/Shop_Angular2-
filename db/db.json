@@ -19,8 +19,8 @@
     {
       "id": 3,
       "name": "Trout",
-      "description": "Third description",
-      "price": 3,
+      "description": "Third description 21",
+      "price": 2,
       "category": "Fish",
       "isAvailable": true
     },
@@ -39,6 +39,22 @@
       "price": 2,
       "category": "Tabacco",
       "isAvailable": false
+    },
+    {
+      "description": "Third description 21",
+      "price": 3,
+      "name": "test",
+      "isAvailable": true,
+      "category": "Not defined",
+      "id": 6
+    },
+    {
+      "name": "4444",
+      "price": 1,
+      "description": "Fifth description",
+      "isAvailable": true,
+      "category": "Not defined",
+      "id": 7
     }
   ]
 }

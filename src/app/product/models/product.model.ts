@@ -15,10 +15,8 @@ export class Product implements ProductModel {
         public name = '',
         public price = 0,
         public isAvailable = false,
-        public description?,
-        public category?
+        public category = ProductCategoryEnum.NotDefined,
+        public description = 'description was not defined',
     ) {
-        this.description = description || 'description was not defined';
-        this.category = category || ProductCategoryEnum.NotDefined;
     }
 }

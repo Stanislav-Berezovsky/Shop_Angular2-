@@ -8,11 +8,37 @@
     <div>
         <label for="product-price">Price:</label>
         <div>
-            <input type="number" min="0" id="product-price" name="product-price" required [(ngModel)]="product.price">
+            <input type="number" min="1" id="product-price" name="product-price" required [(ngModel)]="product.price">
+        </div>
+    </div>
+    <div>
+        <label for="product-description">Description:</label>
+        <div>
+            <input type="text" id="product-description" name="product-description" required [(ngModel)]="product.description">
+        </div>
+    </div>
+    <div>
+        <label for="product-avaliable">Available:</label>
+        <div>
+            <input type="checkbox" id="product-avaliable" name="product-avaliable" [(ngModel)]="product.isAvailable"
+                [ngModelOptions]="{standalone: true}">
+        </div>
+    </div>
+    <div>
+        <label for="product-category">Category:</label>
+        <div>
+            <select required [(ngModel)]="product.category" id="product-avaliable" name="product-avaliable">
+                <option value="Chocolate">Chocolate</option>
+                <option value="Tabacco">Tabacco</option>
+                <option value="Fish">Fish</option>
+                <option value="Not defined">Not defined</option>
+            </select>
         </div>
     </div>
     <button type="submit" form="product-form" [disabled]="form.invalid">
         Save product
     </button>
-    <button (click)="onGoBack()">Back</button>
 </form>
+
+
+<button class="back-button"(click)="onGoBack()">Back</button>
