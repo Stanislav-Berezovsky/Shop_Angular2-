@@ -17,6 +17,7 @@ import { SharedModule } from '../shared/shared.module';
     providers: [
         ConfigOptionsService,
         LocalStorageService,
-    ]
+    ],
+    exports: [ContactUsComponent]
 })
 export class CoreModule { }

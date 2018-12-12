@@ -3,7 +3,7 @@
         Contact us works beta component
     </h2>
 
-    <span class="contact-us-item">Applicatio config: {{appConfig | json}}</span>
+    <span class="contact-us-item">Applicatio config: {{applicationConfig| async | json}}</span>
     <span class="contact-us-item">Random string: {{randomString}}</span>
     <span class="contact-us-item">
         <span class="user-config-item">
@@ -15,6 +15,6 @@
             <input type="text" #userLogin>
         </span>
         <span class="user-config-item"><button (click)="setUserConfig()">set new config</button></span>
-        <span class="user-config-item">User config: {{userConfig | json}}</span>      
+        <span class="user-config-item">User config: {{userConfig | json}}</span>
     </span>
 </div>

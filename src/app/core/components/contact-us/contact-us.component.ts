@@ -1,8 +1,11 @@
 import { Component, OnInit, Inject, Optional, ViewChild, ElementRef } from '@angular/core';
 import { APP_CONFIG, AppConfigToken } from '../../services/constant.service';
+
 import { GeneratorToken, GeneratorFactory } from '../../services/generator.factory';
 import { ConfigOptionsService, UserConfig } from '../../services/config-options.service';
 import { LocalStorageService } from '../../services/local-storage.service';
+import { AppConfigHttpService } from '../../services/app-config-http.service';
+import { AppConfigModel } from '../../models/app-config.model';
 
 @Component({
     selector: 'app-contact-us',
@@ -20,15 +23,24 @@ export class ContactUsComponent implements OnInit {
     @ViewChild('userLogin') userLogin: ElementRef;
 
     userConfig: UserConfig;
+    public applicationConfig: Promise<AppConfigModel>;
 
     constructor(
-        @Inject(AppConfigToken) public appConfig,
+        @Inject(AppConfigToken) private appConfig,
         @Inject(GeneratorToken) public randomString: string,
         @Optional() private configOptionsService: ConfigOptionsService,
+        private appConfigHttpService: AppConfigHttpService,
         private localStorageService: LocalStorageService
     ) { }
 
     ngOnInit() {
+        this.applicationConfig = this.appConfigHttpService.getAppConfig()
+            .then(appConfig => {
+                if (!appConfig) {
+                    appConfig = this.appConfig;
+                }
+                return appConfig;
+            });
         if (this.configOptionsService) {
             this.userConfig = this.configOptionsService.loadConfig();
         } else {

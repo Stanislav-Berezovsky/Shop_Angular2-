@@ -20,10 +20,9 @@
 
 
 <div class="app-container">
-    <!-- <div class="app-component">
-        <app-contact-us></app-contact-us>
-    </div> -->
-
     <router-outlet (activate)='onActivate($event)' (deactivate)='onDeactivate($event)'>
     </router-outlet>
+    <div class="app-component">
+        <app-contact-us></app-contact-us>
+    </div>
 </div>
