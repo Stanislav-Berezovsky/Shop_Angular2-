@@ -21,7 +21,7 @@ export class LoginComponent implements OnDestroy {
     private unsubscribe: Subject<void> = new Subject();
 
     public constructor(
-        private authService: AuthService,
+        public authService: AuthService,
         private router: Router
     ) { }
 
@@ -50,5 +50,9 @@ export class LoginComponent implements OnDestroy {
                 err => console.log(err),
                 () => console.log('[takeUntil] complete')
             );
+    }
+
+    onLogout() {
+        this.authService.logout();
     }
 }

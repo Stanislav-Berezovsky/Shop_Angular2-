@@ -56,9 +56,5 @@
             "category": "Not defined",
             "id": 7
         }
-    ],
-    "AppConfig": {
-        "App": "Shop",
-        "Ver": "2.0"
-    }
+    ]
 }

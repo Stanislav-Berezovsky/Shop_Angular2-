@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ContactUsComponent, PathNotFoundComponent } from './components';
+import { ContactUsComponent } from './components';
 
 import { LocalStorageService } from './services/local-storage.service';
 import { UserOptionsService } from './services/user-options.service';
@@ -9,7 +9,7 @@ import { UserOptionsService } from './services/user-options.service';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-    declarations: [ContactUsComponent, PathNotFoundComponent],
+    declarations: [ContactUsComponent],
     imports: [
         CommonModule,
         SharedModule
@@ -17,7 +17,6 @@ import { SharedModule } from '../shared/shared.module';
     providers: [
         UserOptionsService,
         LocalStorageService,
-    ],
-    exports: [ContactUsComponent]
+    ]
 })
 export class CoreModule { }

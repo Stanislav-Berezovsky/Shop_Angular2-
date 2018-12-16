@@ -7,7 +7,6 @@ import { AppSettingService } from '../../services/app-setting.service';
 import { AppConfigModel } from '../../models/app-config.model';
 
 @Component({
-    selector: 'app-contact-us',
     templateUrl: './contact-us.component.html',
     styleUrls: ['./contact-us.component.css'],
     providers: [

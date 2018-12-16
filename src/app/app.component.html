@@ -9,8 +9,14 @@
         <li>
             <a routerLink="/orders">Orders</a>
         </li>
+        <li>
+            <a routerLink="/admin">Admin</a>
+        </li>
+        <li>
+            <a routerLink="/test_page">Test page</a>
+        </li>
         <li class="app-login">
-            <a routerLink="/login">Log in</a>
+            <a routerLink="/login">{{authService.isUserLoggedIn() ? 'Log out' : 'Log in'}}</a>
         </li>
 
     </ul>
@@ -22,7 +28,4 @@
 <div class="app-container">
     <router-outlet (activate)='onActivate($event)' (deactivate)='onDeactivate($event)'>
     </router-outlet>
-    <div class="app-component">
-        <app-contact-us></app-contact-us>
-    </div>
 </div>

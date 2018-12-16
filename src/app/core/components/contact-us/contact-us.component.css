@@ -1,9 +1,13 @@
-.contact-us-item{
-     display: block;
-     margin-top: 5px;
+.contact-us-item {
+    display: block;
+    margin-top: 5px;
 }
 
-.user-config-item{
-     display: block;
-     margin-top: 5px;
+.user-config-item {
+    display: block;
+    margin-top: 5px;
+}
+
+.contact-us-container {
+    margin-top: 20px;
 }

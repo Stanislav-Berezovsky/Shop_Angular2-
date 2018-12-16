@@ -1,15 +1,23 @@
 <h1>Purchases history</h1>
 
-
-<div *ngIf="purchases && purchases.length; else emptySection">
-    <div *ngFor="let purchase of purchases">
-        <app-order [purchase]="purchase">
-        </app-order>
+<div div *ngIf="authService.isUserLoggedIn(); else permissionError">
+    <div *ngIf="purchases && purchases.length; else emptySection">
+        <div *ngFor="let purchase of purchases">
+            <app-order [purchase]="purchase">
+            </app-order>
+        </div>
     </div>
 </div>
 
 <ng-template #emptySection>
     <div class="empty-section">
         You have never done purchases in our shop :(
+    </div>
+</ng-template>
+
+
+<ng-template #permissionError>
+    <div>
+        Please log in in to see your purchases list
     </div>
 </ng-template>

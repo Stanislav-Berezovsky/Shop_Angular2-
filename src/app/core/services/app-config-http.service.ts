@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { AppConfigModel } from '../models/app-config.model';
 
-const appConfigUrl = 'http://localhost:3000/appConfig';
+const appConfigUrl = './assets/app-setting.json';
 
 @Injectable({
     providedIn: 'root'

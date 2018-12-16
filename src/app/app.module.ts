@@ -11,6 +11,7 @@ import { CoreModule } from './core/core.module';
 import { LayoutModule } from './layout/layout.module';
 import { AppRoutingModule } from './app-routing.module';
 import { OrderModule } from './order/order.module';
+import { AdminModule } from './admin/admin.module';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { OrderModule } from './order/order.module';
     imports: [
         BrowserModule,
         HttpClientModule,
+        AdminModule,
         LayoutModule,
         ProductModule,
         CartModule,
@@ -28,9 +30,6 @@ import { OrderModule } from './order/order.module';
         AppRoutingModule
     ],
     providers: [
-        // add this line if you don't have access to
-        // index.html and you want to set base tag
-        // { provide: APP_BASE_HREF, useValue: '/' }
         {
             provide: HTTP_INTERCEPTORS,
             useClass: TimingInterceptor,
