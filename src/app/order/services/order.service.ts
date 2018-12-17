@@ -27,7 +27,11 @@ export class OrderService {
         const purchase: PurchaseModel = {
             contact: contact,
             products: this.cartService.getCartProducts(),
-            date: new Date()
+            purchaseInfo: {
+                productsCount: this.cartService.getPurchasesQuantity(),
+                productsSum: this.cartService.getPurchasesSum(),
+                date: new Date()
+            }
         };
 
         if (this.authService.isUserLoggedIn()) {
@@ -44,7 +48,7 @@ export class OrderService {
 
         this.purchases = (this.localStorageService.getItem(`${LOCAL_STORAGE_KEY}_${this.authService.user.login}`) || [])
             .map(purchase => {
-                purchase.date = new Date(purchase.date);
+                purchase.purchaseInfo.date = new Date(purchase.purchaseInfo.date);
                 return purchase;
             });
         return this.purchases;

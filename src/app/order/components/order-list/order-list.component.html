@@ -2,9 +2,45 @@
 
 <div div *ngIf="authService.isUserLoggedIn(); else permissionError">
     <div *ngIf="purchases && purchases.length; else emptySection">
-        <div *ngFor="let purchase of purchases">
-            <app-order [purchase]="purchase">
-            </app-order>
+        <div class="purchase-list-container">
+            <div class="purchase-container" *ngFor="let purchase of purchases">
+                <div class="purchase-data" *ngFor="let product of purchase.products">
+                    <h4>
+                        {{product.name}}
+                    </h4>
+                    <span class="product-info">
+                        <span>
+                            Count: {{product.quantity}}
+                        </span>
+                        <span>
+                            {{product.price | currency:'USD'}}
+                        </span>
+                    </span>
+
+                </div>
+                <div *ngIf="purchase.purchaseInfo" class="purchase-information">
+                    <span>
+                        Count: {{purchase.purchaseInfo.productsCount}}
+                    </span>
+                    <span>
+                        {{purchase.purchaseInfo.productsSum | currency:'USD'}}
+                    </span>
+                    <span>
+                        {{purchase.purchaseInfo.date| date:'mediumDate'}}
+                    </span>
+                </div>
+                <div class="purchase-contact-section">
+                    <span>
+                        Phone: {{purchase.contact.phone}}
+                    </span>
+                    <span>
+                        Email: {{purchase.contact.email}}
+                    </span>
+                    <span *ngIf="purchase.contact.address">
+                        Address: {{purchase.contact.address}}
+                    </span>
+                </div>
+            </div>
         </div>
     </div>
 </div>

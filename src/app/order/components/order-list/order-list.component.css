@@ -1,0 +1,32 @@
+.purchase-list-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.purchase-container {
+    border: 1px solid black;
+    width: 30%;
+    margin-left: 10px;
+}
+
+.purchase-contact-section,
+.purchase-information {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.purchase-data {
+    border-bottom: 1px solid black;
+}
+
+.product-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+h4 {
+    margin: 0;
+    text-align: center;
+}
