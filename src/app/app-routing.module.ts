@@ -11,8 +11,8 @@ const routes: Routes = [
     },
     {
         path: 'admin',
-        canLoad: [AuthGuard],
-        loadChildren: './admin/admin.module#AdminModule'
+        loadChildren: './admin/admin.module#AdminModule',
+        canLoad: [AuthGuard]
     },
     {
         path: 'test_page',

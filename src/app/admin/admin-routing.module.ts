@@ -9,7 +9,7 @@ import { AuthGuard, CanDeactivateGuard } from './../core';
 
 const routes: Routes = [
     {
-        path: 'admin',
+        path: '',
         component: AdminComponent,
         canActivate: [AuthGuard],
         children: [

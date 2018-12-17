@@ -12,7 +12,7 @@ import { CoreModule } from '../core.module';
 @Injectable({
     providedIn: CoreModule
 })
-export class AuthGuard implements CanActivate {
+export class AuthGuard implements CanActivate, CanLoad {
     constructor(
         private authService: AuthService,
         private router: Router
@@ -26,10 +26,19 @@ export class AuthGuard implements CanActivate {
         return this.checkLogin(url);
     }
 
+    canLoad(route: Route): Observable<boolean> | Promise<boolean> | boolean {
+        console.log('CanLoad Guard is activated');
+        const url = `/${route.path}`;
+
+        return this.checkLogin(url);
+      }
+
     private checkLogin(url: string): boolean {
         if (this.authService.isUserLoggedIn()) {
             return true;
         }
+
+        this.authService.redirectUrl = url;
 
         // Navigate to the login page
         this.router.navigate(['/login']);

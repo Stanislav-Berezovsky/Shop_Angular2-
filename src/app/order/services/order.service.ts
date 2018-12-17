@@ -38,7 +38,11 @@ export class OrderService {
     }
 
     getAllUserPurchases(): PurchaseModel[] {
-        this.purchases = (this.localStorageService.getItem(`ORDERS_${this.authService.user.login}`) || [])
+        if (!this.authService.isUserLoggedIn()) {
+            return [];
+        }
+
+        this.purchases = (this.localStorageService.getItem(`${LOCAL_STORAGE_KEY}_${this.authService.user.login}`) || [])
             .map(purchase => {
                 purchase.date = new Date(purchase.date);
                 return purchase;

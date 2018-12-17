@@ -42,7 +42,8 @@ export class LoginComponent implements OnDestroy {
                 () => {
                     if (this.authService.isUserLoggedIn()) {
                         this.authError = '';
-                        this.router.navigate(['/products']);
+                        const url = this.authService.redirectUrl || 'products';
+                        this.router.navigate([url]);
                     } else {
                         this.authError = 'Authentication error. Please try again';
                     }

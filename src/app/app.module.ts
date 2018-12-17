@@ -11,7 +11,7 @@ import { CoreModule } from './core/core.module';
 import { LayoutModule } from './layout/layout.module';
 import { AppRoutingModule } from './app-routing.module';
 import { OrderModule } from './order/order.module';
-import { AdminModule } from './admin/admin.module';
+// import { AdminModule } from './admin/admin.module';
 
 
 @NgModule({
@@ -21,7 +21,7 @@ import { AdminModule } from './admin/admin.module';
     imports: [
         BrowserModule,
         HttpClientModule,
-        AdminModule,
+        // AdminModule,
         LayoutModule,
         ProductModule,
         CartModule,
