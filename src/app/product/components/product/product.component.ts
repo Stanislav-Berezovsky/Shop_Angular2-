@@ -22,14 +22,6 @@ export class ProductComponent {
         this.buyProduct.emit({ selectedProduct, count });
     }
 
-    onEdit(selectedProduct: ProductModel) {
-        this.editProduct.emit(selectedProduct);
-    }
-
-    onDelete(selectedProduct: ProductModel){
-        this.deleteProduct.emit(selectedProduct);
-    }
-
     onGoToProductView(selectedProduct: ProductModel): void {
         this.viewProduct.emit(selectedProduct);
     }

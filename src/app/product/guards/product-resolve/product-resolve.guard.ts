@@ -5,9 +5,9 @@ import { Router, Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { map, catchError, take } from 'rxjs/operators';
 
-import { ProductServicesModule } from '../product-services.module';
-import { ProductObservableService } from '../services';
-import { ProductModel, Product } from '../models';
+import { ProductServicesModule } from '../../product-services.module';
+import { ProductObservableService } from '../../services';
+import { ProductModel, Product } from '../../models';
 
 @Injectable({
     providedIn: ProductServicesModule
@@ -32,7 +32,7 @@ export class ProductResolveGuard implements Resolve<ProductModel> {
                     if (product) {
                         return product;
                     } else {
-                        this.router.navigate(['/products']);
+                        this.router.navigate(['']);
                         return null;
                     }
                 }),

@@ -10,13 +10,13 @@ import { LayoutServicesModule } from '../layout-services.module';
     providedIn: LayoutServicesModule
 })
 export class AuthService {
-    // user: UserModel;
-    // private isLoggedIn = false;
-    user: UserModel = {
-        login: 'stan',
-        password: '123'
-    };
-    private isLoggedIn = true;
+    user: UserModel;
+    private isLoggedIn = false;
+    // user: UserModel = {
+    //     login: 'stan',
+    //     password: '123'
+    // };
+    // private isLoggedIn = true;
 
     constructor() { }
 

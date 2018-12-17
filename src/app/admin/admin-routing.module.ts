@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminComponent } from './admin.component';
-import { ManageProductsComponent } from './components';
+import { ManageProductsComponent, ProductFormComponent } from './components';
+import { ProductResolveGuard } from '../product';
 
-import { AuthGuard } from './../core';
+import { AuthGuard, CanDeactivateGuard } from './../core';
 
 const routes: Routes = [
     {
@@ -12,8 +13,27 @@ const routes: Routes = [
         component: AdminComponent,
         canActivate: [AuthGuard],
         children: [
-            { path: 'products', component: ManageProductsComponent },
-            { path: '', component: ManageProductsComponent }
+            {
+                path: 'products',
+                component: ManageProductsComponent
+            },
+            {
+                path: 'products/edit/:productId',
+                component: ProductFormComponent,
+                canDeactivate: [CanDeactivateGuard],
+                resolve: {
+                    product: ProductResolveGuard
+                }
+            },
+            {
+                path: 'products/add',
+                component: ProductFormComponent,
+                canDeactivate: [CanDeactivateGuard]
+            },
+            {
+                path: '',
+                component: ManageProductsComponent
+            }
         ]
     }
 ];

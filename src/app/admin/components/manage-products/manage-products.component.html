@@ -1,6 +1,6 @@
 <div>
     <h2>List of products</h2>
-    <button class="footer-button" (click)="onCreateProduct()">Create new product</button>
+    <button (click)="onCreateProduct()">Create new product</button>
     <div class="products-container" *ngFor="let product of productList$ | async ">
         <div class="product-item">
             <h3>
@@ -13,8 +13,8 @@
                 <p>Category:{{product.category | uppercase }}</p>
                 <p>{{product.price | currency:'USD'}}</p>
             </div>
-            <button (click)="onEdit(product)">Edit</button>
-            <button (click)="onDelete(product)">Delete</button>
+            <button (click)="onEditProduct(product)">Edit</button>
+            <button (click)="onDeleteProduct(product)">Delete</button>
         </div>
     </div>
 </div>

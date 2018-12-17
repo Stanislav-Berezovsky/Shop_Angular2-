@@ -7,8 +7,7 @@ import { pluck } from 'rxjs/operators';
 import { CanComponentDeactivate } from '../../../core/guards/interfaces/can-component-deactivate.interface';
 import { DialogService } from '../../../core/services/dialog.service';
 
-import { ProductModel, Product, ProductCategoryEnum } from '../../models';
-import { ProductObservableService } from '../../services';
+import { ProductModel, Product, ProductCategoryEnum, ProductObservableService } from '../../../product';
 
 @Component({
     templateUrl: './product-form.component.html',
@@ -54,7 +53,7 @@ export class ProductFormComponent implements OnInit, OnDestroy, CanComponentDeac
     }
 
     onGoBack() {
-        this.router.navigate(['products']);
+        this.router.navigate(['admin/products']);
     }
 
     canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {

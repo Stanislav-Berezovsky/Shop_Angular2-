@@ -1,60 +1,60 @@
 {
-    "products": [
-        {
-            "id": 1,
-            "name": "Salmon",
-            "description": "First description",
-            "price": 4,
-            "category": "Fish",
-            "isAvailable": true
-        },
-        {
-            "id": 2,
-            "name": "Marlboro",
-            "description": "Second description",
-            "price": 1,
-            "category": "Tabacco",
-            "isAvailable": true
-        },
-        {
-            "id": 3,
-            "name": "Trout",
-            "description": "Third description 21",
-            "price": 2,
-            "category": "Fish",
-            "isAvailable": true
-        },
-        {
-            "id": 4,
-            "name": "Alpen gold",
-            "description": "Fourth description",
-            "price": 3,
-            "category": "Chocolate",
-            "isAvailable": true
-        },
-        {
-            "id": 5,
-            "name": "Kent",
-            "description": "Fifth description",
-            "price": 2,
-            "category": "Tabacco",
-            "isAvailable": false
-        },
-        {
-            "description": "Third description 21",
-            "price": 3,
-            "name": "test",
-            "isAvailable": true,
-            "category": "Not defined",
-            "id": 6
-        },
-        {
-            "name": "4444",
-            "price": 1,
-            "description": "Fifth description",
-            "isAvailable": true,
-            "category": "Not defined",
-            "id": 7
-        }
-    ]
+  "products": [
+    {
+      "id": 1,
+      "name": "Salmon",
+      "description": "First description (about salmon)",
+      "price": 3,
+      "category": "Fish",
+      "isAvailable": true
+    },
+    {
+      "id": 2,
+      "name": "Marlboro",
+      "description": "Second description",
+      "price": 1,
+      "category": "Tabacco",
+      "isAvailable": true
+    },
+    {
+      "id": 3,
+      "name": "Trout",
+      "description": "Third description 21",
+      "price": 2,
+      "category": "Fish",
+      "isAvailable": true
+    },
+    {
+      "id": 4,
+      "name": "Alpen gold",
+      "description": "Fourth description",
+      "price": 3,
+      "category": "Chocolate",
+      "isAvailable": true
+    },
+    {
+      "id": 5,
+      "name": "Kent",
+      "description": "Fifth description",
+      "price": 2,
+      "category": "Tabacco",
+      "isAvailable": false
+    },
+    {
+      "description": "Third description 21",
+      "price": 3,
+      "name": "test",
+      "isAvailable": true,
+      "category": "Not defined",
+      "id": 6
+    },
+    {
+      "name": "Trout23232",
+      "price": 2,
+      "description": "First description (about trout)",
+      "isAvailable": true,
+      "category": "Fish",
+      "id": 7
+    }
+  ]
 }
