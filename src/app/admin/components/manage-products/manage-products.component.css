@@ -1,0 +1,11 @@
+.product-item {
+    border: 1px solid black;
+    width: 25%;
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+h3 {
+    margin:0;
+}
