@@ -10,9 +10,6 @@ import { ProductModel } from '../../models/product.model';
 })
 export class ProductComponent {
     @Input() product: ProductModel;
-
-    @Output() editProduct: EventEmitter<ProductModel> = new EventEmitter();
-    @Output() deleteProduct: EventEmitter<ProductModel> = new EventEmitter();
     @Output() buyProduct: EventEmitter<{ selectedProduct: ProductModel, count: number }> = new EventEmitter();
     @Output() viewProduct: EventEmitter<ProductModel> = new EventEmitter();
     public constructor() { }

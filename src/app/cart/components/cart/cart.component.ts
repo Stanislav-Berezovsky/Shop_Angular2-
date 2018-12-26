@@ -9,9 +9,8 @@ import { Router } from '@angular/router';
     styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-    private sortField = 'name';
-    private increaseSortDirection = false;
-
+    sortField = 'name';
+    increaseSortDirection = false;
     cartProductList: CartProductModel[] = [];
 
     public constructor(
