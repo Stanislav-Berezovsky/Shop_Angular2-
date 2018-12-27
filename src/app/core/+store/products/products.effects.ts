@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 
+import { Router } from '@angular/router';
+
 import { Action } from '@ngrx/store';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 
@@ -8,14 +10,15 @@ import { Observable, of } from 'rxjs';
 import { switchMap, map, catchError } from 'rxjs/operators';
 import * as ProductsActions from './products.actions';
 
-import { Product, ProductModel, ProductObservableService } from '../../../product';
+import { ProductObservableService } from '../../../product/services/product-observable.service';
 
 @Injectable()
 export class ProductsEffects {
 
     constructor(
         private actions$: Actions,
-        private productObservableService: ProductObservableService
+        private productObservableService: ProductObservableService,
+        private router: Router
     ) {
         console.log('[PRODUCT EFFECTS]');
     }

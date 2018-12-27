@@ -6,6 +6,8 @@ import { pluck } from 'rxjs/operators';
 import { ProductModel } from '../../models/product.model';
 import { CartService } from 'src/app/cart/services/cart.service';
 
+import { Store, select } from '@ngrx/store';
+import { AppState } from './../../../core/+store';
 
 @Component({
     templateUrl: './product-card.component.html',
@@ -15,6 +17,7 @@ export class ProductCardComponent implements OnInit {
     product: ProductModel;
 
     constructor(
+        private store: Store<AppState>,
         private router: Router,
         private route: ActivatedRoute,
         private cartService: CartService

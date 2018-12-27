@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { ProductModel } from '../../models/product.model';
-import { ProductObservableService } from '../../services';
 import { CartService } from '../../../cart/services/cart.service';
 
 import { Store, select } from '@ngrx/store';
@@ -21,7 +20,6 @@ export class ProductListComponent implements OnInit {
 
     public constructor(
         private store: Store<AppState>,
-        private productObservableService: ProductObservableService,
         private cartService: CartService,
         private router: Router
     ) { }

@@ -1,6 +1,5 @@
 import { ProductModel } from '../../../product';
 
-
 export interface ProductsState {
     data: Array<ProductModel>;
     readonly loading: boolean;
