@@ -9,6 +9,11 @@ import { ProductServicesModule } from './product-services.module';
 import { ProductComponent, ProductListComponent, ProductCardComponent } from './components';
 import { ProductsComponent } from './products.component';
 
+import { StoreModule } from '@ngrx/store';
+import { productsReducer } from '../core/+store';
+import { EffectsModule } from '@ngrx/effects';
+import { ProductsEffects } from '../core/+store/products/products.effects';
+
 @NgModule({
     declarations: [
         ProductComponent,
@@ -20,7 +25,9 @@ import { ProductsComponent } from './products.component';
         CommonModule,
         SharedModule,
         ProductServicesModule,
-        ProductRoutingModule
+        ProductRoutingModule,
+        StoreModule.forFeature('products', productsReducer),
+        EffectsModule.forFeature([ProductsEffects])
     ],
     providers: [ProductsAPIProvider]
 })

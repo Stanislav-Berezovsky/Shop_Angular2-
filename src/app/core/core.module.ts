@@ -7,12 +7,14 @@ import { LocalStorageService } from './services/local-storage.service';
 import { UserOptionsService } from './services/user-options.service';
 
 import { SharedModule } from '../shared/shared.module';
+import { CoreStoreModule } from './+store/core-store.module';
 
 @NgModule({
     declarations: [ContactUsComponent],
     imports: [
         CommonModule,
-        SharedModule
+        SharedModule,
+        CoreStoreModule
     ],
     providers: [
         UserOptionsService,

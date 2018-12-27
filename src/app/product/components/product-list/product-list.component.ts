@@ -1,29 +1,36 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Router } from '@angular/router';
 
 // rxjs
-import { Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 import { ProductModel } from '../../models/product.model';
 import { ProductObservableService } from '../../services';
 import { CartService } from '../../../cart/services/cart.service';
+
+import { Store, select } from '@ngrx/store';
+import { AppState, getProductsData } from './../../../core/+store';
+import * as ProductsActions from './../../../core/+store/products/products.actions';
 
 @Component({
     templateUrl: './product-list.component.html',
     styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-    productList$: Observable<ProductModel[]>;
+    productList$: Observable<Array<ProductModel>>;
 
     public constructor(
+        private store: Store<AppState>,
         private productObservableService: ProductObservableService,
         private cartService: CartService,
         private router: Router
     ) { }
 
     ngOnInit() {
-        this.productList$ = this.productObservableService.getProducts();
+        console.log('We have a store! ', this.store);
+        this.productList$ = this.store.pipe(select(getProductsData));
+
+        this.store.dispatch(new ProductsActions.GetProducts());
     }
 
     onBuy(productData: { selectedProduct: ProductModel, count: number }): void {
