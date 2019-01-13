@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import * as RouterActions from './../../../core/+store/router/router.actions';
 
 // rxjs
 import { Observable } from 'rxjs';
@@ -21,11 +21,9 @@ export class ProductListComponent implements OnInit {
     public constructor(
         private store: Store<AppState>,
         private cartService: CartService,
-        private router: Router
     ) { }
 
     ngOnInit() {
-        console.log('We have a store! ', this.store);
         this.productList$ = this.store.pipe(select(getProductsData));
 
         this.store.dispatch(new ProductsActions.GetProducts());
@@ -38,11 +36,15 @@ export class ProductListComponent implements OnInit {
 
     onGoToProductView(productData: ProductModel): void {
         const link = ['products/', productData.id];
-        this.router.navigate(link);
+
+        this.store.dispatch(new RouterActions.Go({
+            path: link
+        }));
     }
 
     onGoToCart() {
-        const link = ['cart'];
-        this.router.navigate(link);
+        this.store.dispatch(new RouterActions.Go({
+            path: ['/cart']
+        }));
     }
 }

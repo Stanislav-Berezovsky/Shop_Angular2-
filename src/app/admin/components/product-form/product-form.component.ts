@@ -1,13 +1,16 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import * as RouterActions from './../../../core/+store/router/router.actions';
 
 import { Observable, Subscription } from 'rxjs';
-import { pluck } from 'rxjs/operators';
 
 import { CanComponentDeactivate } from '../../../core/guards/interfaces/can-component-deactivate.interface';
 import { DialogService } from '../../../core/services/dialog.service';
 
-import { ProductModel, Product, ProductCategoryEnum, ProductObservableService } from '../../../product';
+import { ProductModel, Product } from '../../../product';
+
+import { Store, select } from '@ngrx/store';
+import { AppState, getSelectedUserByUrl } from './../../../core/+store';
+import * as ProductsActions from './../../../core/+store/products/products.actions';
 
 @Component({
     templateUrl: './product-form.component.html',
@@ -17,43 +20,32 @@ export class ProductFormComponent implements OnInit, OnDestroy, CanComponentDeac
     product: ProductModel = new Product();
 
     private deactivateComponent = false;
-    private productCategoryEnum = ProductCategoryEnum;
     private sub: Subscription;
 
     constructor(
-        private productObservableService: ProductObservableService,
-        private dialogService: DialogService,
-        private router: Router,
-        private route: ActivatedRoute,
+        private store: Store<AppState>,
+        private dialogService: DialogService
     ) { }
 
     ngOnInit() {
-        this.route.data.pipe(pluck('product')).subscribe((product: ProductModel) => {
-            this.product = {
-                ...product
-            };
-        });
+        this.sub = this.store
+            .pipe(select(getSelectedUserByUrl))
+            .subscribe(product => this.product = product);
     }
-
 
     onSave() {
         const product = { ...this.product };
+        this.deactivateComponent = true;
 
-        const method = product.id ? 'updateProduct' : 'createProduct';
-        this.productObservableService[method](product)
-            .subscribe(savedProduct => {
-                this.product = {
-                    ...savedProduct
-                };
-                console.log('Saved product', JSON.stringify(this.product));
-                this.deactivateComponent = true;
-                this.onGoBack();
-            });
-
+        if (product.id) {
+            this.store.dispatch(new ProductsActions.UpdateProduct(product));
+        } else {
+            this.store.dispatch(new ProductsActions.CreateProduct(product));
+        }
     }
 
     onGoBack() {
-        this.router.navigate(['admin/products']);
+        this.store.dispatch(new RouterActions.Back());
     }
 
     canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {

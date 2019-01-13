@@ -10,9 +10,8 @@ import { ProductComponent, ProductListComponent, ProductCardComponent } from './
 import { ProductsComponent } from './products.component';
 
 import { StoreModule } from '@ngrx/store';
-import { productsReducer } from '../core/+store';
+import { ProductsEffects, productsReducer } from '../core/+store';
 import { EffectsModule } from '@ngrx/effects';
-import { ProductsEffects } from '../core/+store/products/products.effects';
 
 @NgModule({
     declarations: [

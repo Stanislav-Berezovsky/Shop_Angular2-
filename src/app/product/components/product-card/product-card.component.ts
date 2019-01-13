@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import * as RouterActions from './../../../core/+store/router/router.actions';
 
-import { pluck } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 
 import { ProductModel } from '../../models/product.model';
 import { CartService } from 'src/app/cart/services/cart.service';
 
 import { Store, select } from '@ngrx/store';
-import { AppState } from './../../../core/+store';
+import { AppState, getSelectedUserByUrl } from './../../../core/+store';
 
 @Component({
     templateUrl: './product-card.component.html',
@@ -15,24 +15,23 @@ import { AppState } from './../../../core/+store';
 })
 export class ProductCardComponent implements OnInit {
     product: ProductModel;
+    private sub: Subscription;
 
     constructor(
         private store: Store<AppState>,
-        private router: Router,
-        private route: ActivatedRoute,
         private cartService: CartService
     ) { }
 
     ngOnInit() {
-        this.route.data.pipe(pluck('product')).subscribe((product: ProductModel) => {
-            this.product = {
-                ...product
-            };
-        });
+        this.sub = this.store
+            .pipe(select(getSelectedUserByUrl))
+            .subscribe(product => this.product = product);
     }
 
     onGoToHomePage() {
-        this.router.navigate(['']);
+        this.store.dispatch(new RouterActions.Go({
+            path: ['/products']
+          }));
     }
 
     onBuy(product: ProductModel) {
