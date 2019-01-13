@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Salmon",
       "description": "First description (about salmon)",
-      "price": 41,
+      "price": 32,
       "category": "Fish",
       "isAvailable": true
     },

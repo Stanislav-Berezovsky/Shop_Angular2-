@@ -10,11 +10,11 @@ import { Store, select } from '@ngrx/store';
 import { AppState, getProductsData } from './../../../core/+store';
 import * as ProductsActions from './../../../core/+store/products/products.actions';
 
-
 @Component({
     templateUrl: './manage-products.component.html',
     styleUrls: ['./manage-products.component.css']
 })
+
 export class ManageProductsComponent implements OnInit {
     productList$: Observable<ProductModel[]>;
 

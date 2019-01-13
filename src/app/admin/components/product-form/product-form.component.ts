@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as RouterActions from './../../../core/+store/router/router.actions';
 
 import { Observable, Subscription } from 'rxjs';
@@ -11,12 +11,14 @@ import { ProductModel, Product } from '../../../product';
 import { Store, select } from '@ngrx/store';
 import { AppState, getSelectedUserByUrl } from './../../../core/+store';
 import * as ProductsActions from './../../../core/+store/products/products.actions';
+import { AutoUnsubscribe } from './../../../core/decorators';
 
 @Component({
     templateUrl: './product-form.component.html',
     styleUrls: ['./product-form.component.css']
 })
-export class ProductFormComponent implements OnInit, OnDestroy, CanComponentDeactivate {
+@AutoUnsubscribe('subscription')
+export class ProductFormComponent implements OnInit, CanComponentDeactivate {
     product: ProductModel = new Product();
 
     private deactivateComponent = false;
@@ -50,11 +52,5 @@ export class ProductFormComponent implements OnInit, OnDestroy, CanComponentDeac
 
     canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
         return this.deactivateComponent || this.dialogService.confirm('Discard changes?');
-    }
-
-    ngOnDestroy(): void {
-        if (this.sub) {
-            this.sub.unsubscribe();
-        }
     }
 }

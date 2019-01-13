@@ -8,11 +8,13 @@ import { CartService } from 'src/app/cart/services/cart.service';
 
 import { Store, select } from '@ngrx/store';
 import { AppState, getSelectedUserByUrl } from './../../../core/+store';
+import { AutoUnsubscribe } from './../../../core/decorators';
 
 @Component({
     templateUrl: './product-card.component.html',
     styleUrls: ['./product-card.component.css']
 })
+@AutoUnsubscribe('subscription')
 export class ProductCardComponent implements OnInit {
     product: ProductModel;
     private sub: Subscription;
